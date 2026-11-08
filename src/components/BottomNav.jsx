@@ -24,7 +24,7 @@ const BottomNav = () => {
                 <Leaf aria-hidden="true"/><span>Herbal</span>
             </button>
             <NavLink to="/gastrobot" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-                <MessageCircle aria-hidden="true"/><span>GastroBot</span>
+                <MessageCircle aria-hidden="true"/><span>Nusa Bot</span>
             </NavLink>
         </nav>
     );

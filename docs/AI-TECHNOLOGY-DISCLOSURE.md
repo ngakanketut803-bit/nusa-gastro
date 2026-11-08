@@ -5,14 +5,14 @@
 Nusa Gastro adalah aplikasi edukasi perjalanan tentang kesehatan pencernaan dan keamanan pangan. Aplikasi menggunakan komponen perangkat lunak berikut:
 
 - **React** dan **Vite** untuk antarmuka web.
-- **Google Gemini API** untuk fitur GastroBot dan bantuan identifikasi makanan/minuman dari gambar. Permintaan diproses melalui endpoint server; kredensial provider tidak disimpan di kode frontend.
+- **Google Gemini API** untuk fitur Nusa Bot dan bantuan identifikasi makanan/minuman dari gambar. Permintaan diproses melalui endpoint server; kredensial provider tidak disimpan di kode frontend.
 - **FatSecret API** untuk pencarian katalog atau informasi nutrisi jika kredensial layanan tersebut dikonfigurasi.
 - **Vercel Functions** untuk menjalankan endpoint server saat deployment di Vercel. GitHub Pages, bila digunakan, hanya melayani frontend statis dan memerlukan endpoint API eksternal.
 - **Neon, Supabase, Firebase, dan Google Sheets** merupakan integrasi yang dapat dikonfigurasi untuk fungsi data tertentu; integrasi hanya digunakan jika dipasang dan diaktifkan pada deployment terkait.
 
 ## Peran AI dan data
 
-Gemini menghasilkan jawaban berbasis prompt pengguna untuk GastroBot dan membantu menganalisis gambar yang dikirim melalui fitur scan. Hasilnya dapat keliru, tidak lengkap, atau tidak sesuai konteks. Gambar dan prompt yang menggunakan fitur AI dikirim ke backend aplikasi dan dapat diteruskan ke provider AI yang dikonfigurasi untuk pemrosesan.
+Gemini menghasilkan jawaban berbasis prompt pengguna untuk Nusa Bot dan membantu menganalisis gambar yang dikirim melalui fitur scan. Hasilnya dapat keliru, tidak lengkap, atau tidak sesuai konteks. Gambar dan prompt yang menggunakan fitur AI dikirim ke backend aplikasi dan dapat diteruskan ke provider AI yang dikonfigurasi untuk pemrosesan.
 
 Jangan gunakan hasil aplikasi untuk mendiagnosis atau mengobati penyakit, menentukan dosis obat, atau menunda pertolongan medis. Informasi herbal dan nutrisi juga bersifat edukatif. Verifikasi informasi penting dengan sumber tepercaya atau tenaga kesehatan.
 

@@ -7,7 +7,7 @@ Nusa Gastro adalah aplikasi edukasi kesehatan pencernaan dan keamanan pangan unt
 - Prediksi dan informasi risiko kesehatan pencernaan berdasarkan destinasi.
 - AyuScan untuk membantu mengenali makanan/minuman dan informasi gizinya.
 - Panduan herbal dan kearifan lokal dengan catatan batas bukti serta kewaspadaan.
-- GastroBot untuk tanya jawab edukatif.
+- Nusa Bot untuk tanya jawab edukatif.
 - Pencarian fasilitas kesehatan, kuis, dan mini-game edukasi.
 
 ## Menjalankan aplikasi

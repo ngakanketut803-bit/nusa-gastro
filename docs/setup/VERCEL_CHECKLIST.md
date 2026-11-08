@@ -19,9 +19,9 @@ FATSECRET_CLIENT_ID=
 FATSECRET_CLIENT_SECRET=
 ```
 
-- Gemini powers server-side image identification and GastroBot. It is the only AI provider used by these features.
+- Gemini powers server-side image identification and Nusa Bot. It is the only AI provider used by these features.
 - FatSecret credentials enable external nutrition search and image recognition.
-- For GastroBot and AI photo identification, configure `GEMINI_API_KEY`. For external nutrition search, also configure both FatSecret values.
+- For Nusa Bot and AI photo identification, configure `GEMINI_API_KEY`. For external nutrition search, also configure both FatSecret values.
 - Do not add these keys as `VITE_*` variables. Never put provider keys in frontend code or a committed `.env` file.
 - The values previously entered in GitHub Actions Secrets do **not** transfer to Vercel. Enter them separately in Vercel without sharing them in chat.
 
@@ -49,7 +49,7 @@ The repository configures:
 After deploying, open the Vercel URL:
 
 1. Open `/api/health`. Confirm it returns `{"ok":true,"api":"ready",...}`. The response only shows whether Gemini and FatSecret are configured; it never returns keys.
-2. In **GastroBot**, send a question and confirm a provider response appears (not the local fallback notice).
+2. In **Nusa Bot**, send a question and confirm a provider response appears (not the local fallback notice).
 3. In **Scan Makanan & Minuman**, capture/upload a photo and confirm the server identifies it and returns a catalog/nutrition result.
 4. Search or manually select a catalog drink, then analyze to verify the drink nutrition display.
 5. If provider variables were added after the first deployment, redeploy the latest Production deployment.

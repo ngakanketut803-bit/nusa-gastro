@@ -10,7 +10,7 @@ export default function GastroBotPage() {
         <section className="gg-focus-intro">
           <span className="gg-kicker"><HeartPulse size={15}/> SESI KONSELING</span>
           <h1>Mulai dengan apa yang kamu rasakan.</h1>
-          <p>Ceritakan keluhan dan sejak kapan terjadi. GastroBot memberi informasi awal; bukan diagnosis medis.</p>
+          <p>Ceritakan keluhan dan sejak kapan terjadi. Nusa Bot memberi informasi awal; bukan diagnosis medis.</p>
         </section>
         <GastroBot standalone/>
       </main>

@@ -93,7 +93,7 @@ export default function HerbalGuide() {
         <div className="gg-herb-caution"><AlertCircle size={14}/><span>{plant.caution}</span></div>
       </div>}
     </article>)}</div>
-    <section className="gg-herbal-chat gg-card" aria-label="Tanya GastroBot tentang tanaman herbal">
+    <section className="gg-herbal-chat gg-card" aria-label="Tanya Nusa Bot tentang tanaman herbal">
       <div className="gg-herbal-chat-title"><span><Sparkles size={17}/></span><div><b>Tanya seputar kearifan lokal</b><small>Jawaban disesuaikan dengan pertanyaan dan panduan keamanan.</small></div></div>
       <div className="gg-herbal-chat-log" role="log" aria-live="polite">{messages.slice(-8).map((message, index) => <p className={`gg-herbal-chat-message ${message.role}`} key={`${index}-${message.content}`}>{message.content}</p>)}{loading && <p className="gg-herbal-chat-message assistant">Sedang menyiapkan jawaban…</p>}</div>
       <form className="gg-herbal-chat-form" onSubmit={ask}><MessageCircle size={17}/><input value={question} maxLength={1000} onChange={(event) => setQuestion(event.target.value)} placeholder="Contoh: apakah jahe membantu mual?" aria-label="Tanya tentang tanaman herbal"/><button disabled={!question.trim() || loading} aria-label="Kirim pertanyaan"><Send size={16}/></button></form>

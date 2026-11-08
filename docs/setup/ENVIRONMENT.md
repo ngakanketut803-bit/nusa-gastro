@@ -20,7 +20,7 @@ The root `.env` is ignored by Git. Commit `.env.example` only; it contains varia
   FATSECRET_CLIENT_SECRET
   ```
 
-- GastroBot and image identification use Gemini through `GEMINI_API_KEY`.
+- Nusa Bot and image identification use Gemini through `GEMINI_API_KEY`.
 - Add only keys for providers you use. The values entered as GitHub Actions Secrets do not automatically transfer to Vercel.
 - The frontend calls API routes on the same Vercel domain. Leave `VITE_API_BASE_URL` unset.
 - `GEMINI_API_KEY` and `FATSECRET_CLIENT_SECRET` must remain server-side; never rename them to `VITE_*`.
@@ -31,4 +31,4 @@ Firebase web configuration and the Supabase anon key are client-side values, not
 
 ## API key handling
 
-AyuScan and GastroBot send requests to the server-side API. They do not ask visitors to enter a provider API key; keep all provider credentials in Vercel environment variables.
+AyuScan and Nusa Bot send requests to the server-side API. They do not ask visitors to enter a provider API key; keep all provider credentials in Vercel environment variables.

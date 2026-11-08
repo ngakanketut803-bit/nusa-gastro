@@ -60,7 +60,7 @@ export default function Home() {
             <h1 id="hero-title">Nikmati perjalanan.<br/><span>Jaga pencernaan.</span></h1>
             <p>Asisten cerdas untuk menjaga kesehatan pencernaan dan keamanan pangan di setiap perjalanan.</p>
             <div className="gg-hero-actions">
-              <Link className="gg-button gg-button-primary" to="/predict">Rencanakan dengan Gastro Predict <ArrowUpRight size={16}/></Link>
+              <Link className="gg-button gg-button-primary" to="/predict">Rencanakan dengan Nusa Predict <ArrowUpRight size={16}/></Link>
               <button className="gg-text-link" type="button" onClick={() => goToSection('tools')}>Lihat semua panduan <ArrowDownRight size={16}/></button>
             </div>
             <div className="gg-trust"><span><i/> Panduan preventif</span><span><i/> Dibuat untuk pelancong tropis</span></div>
@@ -89,10 +89,10 @@ export default function Home() {
             <p>Alat praktis untuk merencanakan perjalanan, memilih makanan, dan mendapatkan bantuan.</p>
           </div>
           <div className="gg-tool-list">
-            <Link to="/predict" className="gg-tool-row"><span className="gg-tool-index">01</span><img src={publicAsset('nusa-gastro-assets/features/gastro-predict.png')} alt=""/><span className="gg-tool-copy"><b>Gastro Predict</b><small>Model ARIMAX dan faktor risiko destinasi</small></span><ArrowUpRight size={19}/></Link>
+            <Link to="/predict" className="gg-tool-row"><span className="gg-tool-index">01</span><img src={publicAsset('nusa-gastro-assets/features/gastro-predict.png')} alt=""/><span className="gg-tool-copy"><b>Nusa Predict</b><small>Model ARIMAX dan faktor risiko destinasi</small></span><ArrowUpRight size={19}/></Link>
             <button type="button" className="gg-tool-row" onClick={() => navigate('/scan')}><span className="gg-tool-index">02</span><img src={publicAsset('nusa-gastro-assets/features/food-scan.png')} alt=""/><span className="gg-tool-copy"><b>Food Scan</b><small>Panduan memilih sajian lokal</small></span><ArrowUpRight size={19}/></button>
             <button type="button" className="gg-tool-row" onClick={() => goToSection('herbal')}><span className="gg-tool-index">03</span><img src={publicAsset('nusa-gastro-assets/features/herbal-kearifan-lokal.png')} alt=""/><span className="gg-tool-copy"><b>Herbal & kearifan lokal</b><small>Panduan tradisional dan kehati-hatian</small></span><ArrowUpRight size={19}/></button>
-            <Link to="/gastrobot" className="gg-tool-row"><span className="gg-tool-index">04</span><img src={publicAsset('nusa-gastro-assets/features/gastrobot.png')} alt=""/><span className="gg-tool-copy"><b>GastroBot</b><small>Konseling pencernaan dan pertolongan awal</small></span><ArrowUpRight size={19}/></Link>
+            <Link to="/gastrobot" className="gg-tool-row"><span className="gg-tool-index">04</span><img src={publicAsset('nusa-gastro-assets/features/gastrobot.png')} alt=""/><span className="gg-tool-copy"><b>Nusa Bot</b><small>Konseling pencernaan dan pertolongan awal</small></span><ArrowUpRight size={19}/></Link>
             <button type="button" className="gg-tool-row" onClick={() => goToSection('gastrobot')}><span className="gg-tool-index">05</span><img src={publicAsset('nusa-gastro-assets/features/rumah-sakit-terdekat.png')} alt=""/><span className="gg-tool-copy"><b>Rumah Sakit &amp; Puskesmas Terdekat</b><small>Temukan layanan kesehatan di sekitar</small></span><ArrowUpRight size={19}/></button>
             <Link to="/games" className="gg-tool-row"><span className="gg-tool-index">06</span><img src={publicAsset('nusa-gastro-assets/features/games-pasang-jawaban.png')} alt=""/><span className="gg-tool-copy"><b>Games</b><small>Permainan ringan untuk menemani perjalanan</small></span><ArrowUpRight size={19}/></Link>
           </div>
@@ -123,14 +123,14 @@ export default function Home() {
 
         <section className="gg-closing-cta" aria-labelledby="closing-title">
           <div><span className="gg-kicker">SATU LANGKAH SEBELUM BERANGKAT</span><h2 id="closing-title">Mulai dari pilihan yang ingin kamu pahami.</h2><p>Gunakan informasi yang tersedia sebagai panduan, dan hubungi tenaga kesehatan untuk keluhan yang membutuhkan pemeriksaan.</p></div>
-          <div className="gg-closing-actions"><Link className="gg-button gg-button-light" to="/scan">Jelajahi Food Scan <ArrowUpRight size={16}/></Link><Link className="gg-closing-text" to="/gastrobot">Tanya GastroBot <MessageCircle size={16}/></Link></div>
+          <div className="gg-closing-actions"><Link className="gg-button gg-button-light" to="/scan">Jelajahi Food Scan <ArrowUpRight size={16}/></Link><Link className="gg-closing-text" to="/gastrobot">Tanya Nusa Bot <MessageCircle size={16}/></Link></div>
         </section>
       </main>
 
       <footer className="gg-footer gg-site-footer">
         <Link className="gg-brand" to="/home"><img className="gg-brand-mark gg-brand-logo" src={publicAsset('nusa-gastro-assets/logo.png')} alt=""/><span className="gg-brand-name"><b>Nusa Gastro <em>AI</em></b><small>Kesehatan perjalanan</small></span></Link>
         <p>Informasi bersifat edukatif dan tidak menggantikan diagnosis atau perawatan tenaga kesehatan profesional.</p>
-        <div className="gg-footer-links"><Link to="/predict">Gastro Predict</Link><Link to="/scan">Food Scan</Link><Link to="/gastrobot">GastroBot</Link><a href="tel:112"><Phone size={14}/> Darurat 112</a></div>
+        <div className="gg-footer-links"><Link to="/predict">Nusa Predict</Link><Link to="/scan">Food Scan</Link><Link to="/gastrobot">Nusa Bot</Link><a href="tel:112"><Phone size={14}/> Darurat 112</a></div>
         <span>© 2026 Nusa Gastro AI</span>
       </footer>
 

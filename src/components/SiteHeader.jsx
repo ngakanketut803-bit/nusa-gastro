@@ -25,10 +25,10 @@ export default function SiteHeader({ username, onLogin, onProfileToggle, profile
         </Link>
 
         <nav className={`gg-site-links ${menuOpen ? 'is-open' : ''}`} aria-label="Navigasi utama">
-          <NavLink to="/predict" onClick={closeMenu}>Gastro Predict</NavLink>
+          <NavLink to="/predict" onClick={closeMenu}>Nusa Predict</NavLink>
           <NavLink to="/scan" onClick={closeMenu}>Food Scan</NavLink>
           <button type="button" onClick={() => goToSection('herbal')}>Panduan herbal</button>
-          <NavLink to="/gastrobot" onClick={closeMenu}>GastroBot</NavLink>
+          <NavLink to="/gastrobot" onClick={closeMenu}>Nusa Bot</NavLink>
           <a className="gg-mobile-emergency" href="tel:112" onClick={closeMenu}><Phone size={15}/> Darurat 112</a>
         </nav>
 
