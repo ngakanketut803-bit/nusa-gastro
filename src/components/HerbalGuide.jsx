@@ -19,13 +19,35 @@ const PLANTS = [
   { name: 'Daun salam', latin: 'Syzygium polyanthum', image: 'daun-salam.png', imageScale: 1.29, symptom: 'Bumbu pangan', summary: 'Daun aromatik untuk masakan, bukan pengganti obat.', use: 'Gunakan untuk memasak; buang daun sebelum disajikan.', evidence: 'Klaim terapeutik rumahan belum memiliki bukti yang cukup.', caution: 'Hindari konsumsi ekstrak pekat dan hentikan bila menimbulkan reaksi.' },
 ];
 
+const PLANT_IMAGES = {
+  'Lidah buaya': 'lidah buaya.png',
+  'Bawang putih': 'bawang putih.png',
+};
+
+const PLANT_PARTS = {
+  Jahe: 'Rimpang; umumnya digunakan sebagai bumbu atau seduhan pangan.',
+  Kunyit: 'Rimpang; digunakan sebagai bumbu dan bahan minuman tradisional.',
+  Temulawak: 'Rimpang; lazim diolah sebagai bumbu atau jamu.',
+  'Daun jambu biji': 'Daun; penggunaan sebagai ramuan merupakan praktik tradisional, bukan pengganti oralit.',
+  Serai: 'Batang; digunakan sebagai bumbu atau seduhan pangan.',
+  'Daun mint': 'Daun; digunakan sebagai penyedap makanan atau minuman.',
+  Adas: 'Biji/buah kering; digunakan sebagai rempah atau seduhan.',
+  'Kayu manis': 'Kulit batang; digunakan sebagai rempah pangan.',
+  Kencur: 'Rimpang; digunakan sebagai bumbu dan bahan jamu.',
+  'Lidah buaya': 'Gel bening dan lateks/getah kuning adalah bagian berbeda; produk minum tidak otomatis aman.',
+  'Bawang putih': 'Siung; digunakan terutama sebagai bumbu masakan.',
+  'Daun salam': 'Daun aromatik; digunakan sebagai bumbu masakan dan biasanya dikeluarkan sebelum disajikan.',
+};
+
+const MEDICAL_HELP = 'Segera cari bantuan tenaga kesehatan jika ada darah pada tinja, demam tinggi, nyeri berat, muntah terus hingga sulit minum, tanda dehidrasi, atau kondisi memburuk. Saat diare, utamakan oralit yang dilarutkan sesuai petunjuk kemasan dan cairan yang aman.';
+
 const INITIAL_MESSAGES = [{ role: 'assistant', content: 'Tanyakan tanaman, cara penggunaan tradisional, atau batas keamanannya. Saya akan membedakan informasi tradisional dari bukti yang sudah tersedia.' }];
 
 function localAnswer(question) {
   const text = question.toLowerCase();
   const plant = PLANTS.find((item) => text.includes(item.name.toLowerCase()));
   if (/diare|mencret/.test(text)) return 'Saat diare, yang utama adalah mencegah dehidrasi: minum oralit yang dilarutkan sesuai petunjuk kemasan dan air aman. Ramuan daun jambu biji belum terbukti sebagai pengganti oralit. Segera periksa bila tinja berdarah, demam tinggi, muntah terus, sangat lemas, atau sulit minum.';
-  if (plant) return `${plant.name} (${plant.latin}): ${plant.summary} ${plant.use} Catatan keamanan: ${plant.caution} Informasi tradisional bukan diagnosis atau pengganti perawatan tenaga kesehatan.`;
+  if (plant) return `${plant.name} (${plant.latin}): ${plant.summary} Bagian/bentuk umum: ${PLANT_PARTS[plant.name]} ${plant.use} Batas bukti: ${plant.evidence} Catatan keamanan: ${plant.caution} ${MEDICAL_HELP}`;
   return 'Sebutkan nama tanaman atau keluhan yang ingin ditanyakan agar saya dapat memberi informasi yang lebih sesuai. Bukti manfaat herbal sering terbatas; jangan menunda pemeriksaan untuk mencoba ramuan, terutama bila gejala berat atau memburuk.';
 }
 
@@ -45,7 +67,7 @@ export default function HerbalGuide() {
       .map(({ name, symptom, summary }) => `${name} (${symptom}): ${summary}`)
       .join('\n');
     const relevantDetails = mentionedPlants
-      .map(({ name, latin, use, evidence, caution }) => `${name} (${latin}) — Penggunaan: ${use} Bukti: ${evidence} Perhatian: ${caution}`)
+      .map(({ name, latin, use, evidence, caution }) => `${name} (${latin}) — Bagian/bentuk umum: ${PLANT_PARTS[name]} Penggunaan: ${use} Bukti: ${evidence} Perhatian: ${caution} Batas pertolongan mandiri: ${MEDICAL_HELP}`)
       .join('\n');
     return `${catalogSummary}${relevantDetails ? `\nRincian tanaman yang ditanyakan:\n${relevantDetails}` : ''}`;
   };
@@ -78,9 +100,9 @@ export default function HerbalGuide() {
   };
 
   return <div className="gg-herbal-guide">
-    <div className="gg-herb-tools"><p className="gg-herb-intro"><Leaf size={16}/> Ringkasan penting ditampilkan terlebih dahulu. Buka detail untuk melihat cara penggunaan, batas bukti, dan kewaspadaan.</p></div>
+    <div className="gg-herb-tools"><p className="gg-herb-intro"><Leaf size={16}/> Ringkasan penting ditampilkan terlebih dahulu. Buka detail untuk melihat bagian yang digunakan, praktik tradisional, batas bukti, keamanan, dan kapan perlu bantuan.</p></div>
     <div className="gg-herb-grid">{PLANTS.map((plant) => <article className="gg-card gg-herb-card" key={plant.name}>
-      <div className="gg-herb-image">{plant.image ? <img src={publicAsset(`nusa-gastro-assets/herbs/${plant.image}`)} alt={plant.name} loading="lazy" style={{ '--herb-image-scale': plant.imageScale }} /> : <Leaf size={52} aria-hidden="true" />}</div>
+      <div className="gg-herb-image">{plant.image || PLANT_IMAGES[plant.name] ? <img src={publicAsset(`nusa-gastro-assets/herbs/${plant.image || PLANT_IMAGES[plant.name]}`)} alt={plant.name} loading="lazy" style={{ '--herb-image-scale': plant.imageScale }} /> : <Leaf size={52} aria-hidden="true" />}</div>
       <div className="gg-herb-top"><small>{plant.symptom}</small></div>
       <h3>{plant.name}</h3><span className="gg-herb-latin">{plant.latin}</span>
       <p>{plant.summary}</p>
@@ -88,9 +110,11 @@ export default function HerbalGuide() {
         {expanded[plant.name] ? 'Tutup detail' : 'Pelajari selengkapnya'} {expanded[plant.name] ? <ChevronUp size={15}/> : <ChevronDown size={15}/>}
       </button>
       {expanded[plant.name] && <div className="gg-herb-details">
+        <div><b>Bagian dan bentuk umum</b><span>{PLANT_PARTS[plant.name]}</span></div>
         <div><b>Penggunaan tradisional</b><span>{plant.use}</span></div>
         <div><b>Batas bukti</b><span>{plant.evidence}</span></div>
         <div className="gg-herb-caution"><AlertCircle size={14}/><span>{plant.caution}</span></div>
+        <div className="gg-herb-help"><b>Kapan mencari bantuan</b><span>{MEDICAL_HELP}</span></div>
       </div>}
     </article>)}</div>
     <section className="gg-herbal-chat gg-card" aria-label="Tanya Nusa Bot tentang tanaman herbal">
