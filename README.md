@@ -1,58 +1,82 @@
-# Nusa Gastro
+# [Nusa Gastro]
 
-Nusa Gastro adalah aplikasi edukasi kesehatan pencernaan dan keamanan pangan untuk membantu pengguna mempersiapkan perjalanan. Informasi aplikasi bersifat edukatif dan bukan pengganti diagnosis atau saran tenaga kesehatan.
+## Description
+Nusa Gastro adalah platform mobile health berbasis web cerdas yang dirancang untuk mendukung ketahanan kesehatan pariwisata di Bali melalui mitigasi diare tropis dan gangguan pencernaan secara proaktif. Platform ini mengintegrasikan pemodelan peramalan statistik iklim (ARIMAX), pemindaian gizi dan higienitas pangan (Food Scan), serta asisten kesehatan virtual berbasis Generative AI (Nusa Bot) dalam satu platform terpadu.
 
-## Fitur
+## Problem & Target User
+Problem: Bali sebagai destinasi wisata internasional kerap menghadapi ancaman diare tropis akibat perubahan pola makan wisatawan, keterpaparan makanan/minuman yang terkontaminasi, serta pengaruh iklim tropis dengan kelembapan tinggi. Minimnya validasi keamanan pangan mandiri dan keterbatasan informasi lokasi fasilitas kesehatan darurat sering memperburuk komplikasi dehidrasi pada penderita.
+Target User: Wisatawan (domestik & internasional), pelaku perjalanan keluarga, serta masyarakat lokal di kawasan pariwisata yang mengakses web secara on-the-go melalui perangkat smartphone maupun desktop.
 
-- Prediksi dan informasi risiko kesehatan pencernaan berdasarkan destinasi.
-- AyuScan untuk membantu mengenali makanan/minuman dan informasi gizinya.
-- Panduan herbal dan kearifan lokal dengan catatan batas bukti serta kewaspadaan.
-- Nusa Bot untuk tanya jawab edukatif.
-- Pencarian fasilitas kesehatan, kuis, dan mini-game edukasi.
+## Key Features
+Nusa Predict: Dasbor peramalan tren kenaikan kasus diare berbasis pemodelan statistik ARIMAX dengan variabel iklim dan data historis.
+Food Scan: Fitur pemindai berbasis Visual AI / Computer Vision untuk analisis kandungan gizi dan tingkat keamanan kuliner lokal.
+Nusa Bot: Asisten virtual interaktif berbasis Generative AI (LLM) untuk media konsultasi awal dan rekomendasi rehidrasi mandiri.
+Herbal & Kearifan Lokal: Ensiklopedia digital edukasi obat tradisional Indonesia (seperti jahe, kunyit, dan temulawak) untuk kenyamanan pencernaan.
+Rumah Sakit & Puskesmas Terdekat: Peta interaktif berbasis lokasi (geolocation) untuk melacak faskes darurat di sekitar pengguna.
+Educational Games: Permainan edukatif interaktif (Puzzle & Match Game) tentang kesehatan pencernaan.
 
-## Menjalankan aplikasi
+## Tech Stack
+Frontend: HTML5, CSS3, JavaScript (Lightweight / Responsive Web UI)
+Backend / Serverless: Node.js / Vercel Serverless Platform
+Database / Storage: LocalStorage / Web Storage API
+Hosting / Deployment: Vercel Hosting
 
-Persyaratan: Node.js 20 atau lebih baru dan npm.
+## AI Implementation
+ARIMAX Forecasting Model: Pemodelan deret waktu (time-series) yang menggabungkan data historis kasus diare dengan kovariat eksogen iklim (curah hujan, suhu, kelembapan, tekanan udara) untuk peramalan tren kasus.
+Computer Vision & Visual AI: Digunakan pada fitur Food Scan untuk pengenalan gambar makanan/minuman serta ekstraksi informasi nutrisi.
+Generative AI / Large Language Model (LLM): Digunakan pada fitur Nusa Bot untuk memproses konsultasi kesehatan pencernaan berbasis teks secara kontekstual dan responsif.
 
-```powershell
-npm ci
-Copy-Item .env.example .env
-npm run dev
-```
+## Architecture / Data Flow
+[User Browser (Mobile/Desktop)]
+             │
+             ▼
+[Frontend: HTML5, CSS3, JavaScript (Responsive Web UI)]
+             │
+             ├──────────────────────────┐
+             ▼                          ▼
+[Backend Services / Vercel Edge] ──► [Local / Web Storage]
+             │
+             ├──────────────────────────┬──────────────────────────┐
+             ▼                          ▼                          ▼
+[ARIMAX Engine / API]       [Computer Vision API]         [Generative AI / LLM]
+(Model Peramalan Iklim)      (Analisis Food Scan)          (Nusa Bot Consultation)
+             │                          │                          │
+             └──────────────────────────┼──────────────────────────┘
+                                        ▼
+                         [Interactive User Result / UI]
 
-Isi `.env` hanya dengan nilai yang diperlukan. Jangan pernah mengisi atau mengirim secret asli ke GitHub. Build dan pemeriksaan kode:
+## Installation / Run Instructions
+Clone repositori ini:
+git clone https://github.com/ngakanketut803-bit/nusa-gastro.git
 
-```powershell
-npm run build
-npm run lint
-```
+Masuk ke direktori proyek:
+cd nusa-gastro
 
-## Konfigurasi dan deployment
+Jalankan aplikasi:
+- Buka file index.html secara langsung di browser, atau
+- Gunakan ekstensi Live Server pada VS Code.
 
-Salin `.env.example` sebagai daftar nama variabel yang didukung. Kunci provider seperti `GEMINI_API_KEY`, `FATSECRET_CLIENT_ID`, dan `FATSECRET_CLIENT_SECRET` hanya boleh disimpan di environment server atau secret manager, tidak di variabel `VITE_*`.
+Environment Variables:
+# Salin file .env.example jika menggunakan API Key eksternal
+cp .env.example .env
+# Salin file .env.example jika menggunakan API Key eksternal
+cp .env.example .env
 
-Untuk deployment lengkap di Vercel, ikuti [panduan deployment](./docs/setup/VERCEL_CHECKLIST.md). Workflow GitHub Pages yang tersedia hanya menyajikan frontend statis dan mengarahkan permintaan API ke deployment eksternal; sesuaikan URL API di workflow sebelum menggunakannya untuk deployment baru.
+## Deployment URL
+https://nusa-gastro.vercel.app/
 
-Panduan integrasi opsional:
+## Demo Account (jika diperlukan - jangan simpan password sensitif di public repo)
+Tidak diperlukan akun khusus (Akses publik terbuka langsung tanpa proses autentikasi rumit).
 
-- [Supabase](./docs/setup/SUPABASE_SETUP.md)
-- [Neon](./docs/setup/NEON_MIGRATION_GUIDE.md)
-- [Webhook Google Sheets](./docs/setup/GOOGLE_SHEETS_WEBHOOK_SETUP.md)
-- [Environment variables](./docs/setup/ENVIRONMENT.md)
+## Known Limitations
+- Akurasi fitur Nusa Predict sangat bergantung pada kelengkapan pembaruan data historis penyakit dan kondisi iklim wilayah setempat.
+- Pemrosesan gambar pada Food Scan dan respons Nusa Bot membutuhkan koneksi internet yang stabil.
 
-## Struktur repository
+## Third-party Resources / Credits
+- Leaflet.js: Open-source JavaScript library untuk peta interaktif lokasi fasilitas kesehatan.
+- Chart.js: Open-source JavaScript library untuk visualisasi grafik prediksi ARIMAX.
+- OpenStreetMap: Penyedia data peta tiles.
+- AI Coding Assistant: ChatGPT / GitHub Copilot (sebagai development assistant).
 
-| Lokasi | Isi |
-| --- | --- |
-| `src/` | Kode sumber antarmuka React |
-| `api/`, `server/` | Endpoint API untuk deployment dan pengembangan lokal |
-| `data/` | Data referensi makanan dan minuman |
-| `public/` | Aset statis yang digunakan aplikasi |
-| `docs/setup/` | Panduan setup, integrasi, dan deployment |
-| `docs/assets/` | Aset desain dan referensi |
-| `docs/screenshots/` | Tempat menambahkan screenshot dokumentasi |
-| `.env.example` | Contoh konfigurasi tanpa credential |
-
-## AI & Technology Disclosure
-
-Lihat [AI & Technology Disclosure](./docs/AI-TECHNOLOGY-DISCLOSURE.md) untuk penjelasan teknologi, penggunaan AI, layanan pihak ketiga, dan batasan aplikasi.
+## Team Members
+No member, just Ngakan Ketut Adi Haryajna only (individu)
