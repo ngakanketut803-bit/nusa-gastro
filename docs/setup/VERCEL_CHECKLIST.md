@@ -1,10 +1,10 @@
-# Deploy GastroGuard AI to Vercel
+# Deploy Nusa Gastro to Vercel
 
 Vercel is required for the AI scan and chatbot because it hosts both the static frontend and the serverless functions in `api/`. GitHub Pages cannot run those API routes.
 
 ## 1. Import the repository
 
-1. In Vercel, choose **Add New → Project** and import `haryyanna/gastroguardai`.
+1. In Vercel, choose **Add New → Project** and import the Nusa Gastro repository.
 2. Keep the project root at the repository root.
 3. The included `vercel.json` configures the Vite build, `dist` output, and explicitly rewrites all `/api/...` URLs to the single dispatcher at `/api/index`. This keeps deployment under the Hobby plan's 12-function limit while preserving the existing API URLs.
 4. Deploy the project. Pushing to `main` will trigger future deployments.
@@ -58,4 +58,4 @@ Set provider-side quotas/usage alerts. These public API routes call paid/limited
 
 ## 5. Repository deployment
 
-The GitHub Pages workflow has been removed because it cannot run the AI API routes. Use the Vercel deployment URL as the live application URL. The old GitHub Pages site may remain visible until Pages is disabled in the repository settings.
+The repository also includes a GitHub Pages workflow for the static frontend. It cannot run API routes itself and currently relies on an external API deployment configured in the workflow. For a single-provider deployment, use Vercel for both the frontend and API. If using GitHub Pages, update the API base URL and configure the API deployment's allowed origins before publishing.

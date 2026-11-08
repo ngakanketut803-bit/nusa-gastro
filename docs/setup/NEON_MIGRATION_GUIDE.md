@@ -14,7 +14,7 @@ Untuk Vercel:
 - `VITE_NEON_ENABLED` = `true`
 - `VITE_API_BASE_URL` = kosongkan (pakai same-origin)
 - `VITE_SHEETS_WEBHOOK_URL` = URL Apps Script Web App
-- `VITE_SHEETS_SOURCE_LABEL` = `moodify-web`
+- `VITE_SHEETS_SOURCE_LABEL` = `nusa-gastro-web`
 - `GEMINI_API_KEY` = Gemini API key (server-side only; configure in Vercel Environment Variables)
 
 Untuk lokal (`.env`), isi variabel yang sama.

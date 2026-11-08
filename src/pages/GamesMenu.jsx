@@ -38,7 +38,7 @@ export default function GamesMenu() {
           {GAMES.map((game) => (
             <article className={`gg-game-card ${game.tone}`} key={game.title}>
               <div className="gg-game-art">
-                <img src={publicAsset(`gastroguard-assets/features/${game.image}`)} alt={game.imageAlt} />
+                <img src={publicAsset(`nusa-gastro-assets/features/${game.image}`)} alt={game.imageAlt} />
               </div>
               <div className="gg-game-content">
                 <span className="gg-game-label">PERMAINAN EDUKATIF</span>
@@ -54,7 +54,7 @@ export default function GamesMenu() {
 
         <Link className="gg-legacy-game-link" to="/games/tangkap-kebahagiaan">
           <span className="gg-legacy-game-icon"><Sparkles size={18} aria-hidden="true" /></span>
-          <span><b>Tangkap Kebahagiaan</b><small>Masih ingin mencoba mini-game GastroGuard?</small></span>
+          <span><b>Tangkap Kebahagiaan</b><small>Masih ingin mencoba mini-game Nusa Gastro?</small></span>
           <span className="gg-legacy-game-arrow" aria-hidden="true">→</span>
         </Link>
       </main>

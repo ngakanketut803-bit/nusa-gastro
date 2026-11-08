@@ -80,7 +80,7 @@ export default function HerbalGuide() {
   return <div className="gg-herbal-guide">
     <div className="gg-herb-tools"><p className="gg-herb-intro"><Leaf size={16}/> Ringkasan penting ditampilkan terlebih dahulu. Buka detail untuk melihat cara penggunaan, batas bukti, dan kewaspadaan.</p></div>
     <div className="gg-herb-grid">{PLANTS.map((plant) => <article className="gg-card gg-herb-card" key={plant.name}>
-      <div className="gg-herb-image">{plant.image ? <img src={publicAsset(`gastroguard-assets/herbs/${plant.image}`)} alt={plant.name} loading="lazy" style={{ '--herb-image-scale': plant.imageScale }} /> : <Leaf size={52} aria-hidden="true" />}</div>
+      <div className="gg-herb-image">{plant.image ? <img src={publicAsset(`nusa-gastro-assets/herbs/${plant.image}`)} alt={plant.name} loading="lazy" style={{ '--herb-image-scale': plant.imageScale }} /> : <Leaf size={52} aria-hidden="true" />}</div>
       <div className="gg-herb-top"><small>{plant.symptom}</small></div>
       <h3>{plant.name}</h3><span className="gg-herb-latin">{plant.latin}</span>
       <p>{plant.summary}</p>

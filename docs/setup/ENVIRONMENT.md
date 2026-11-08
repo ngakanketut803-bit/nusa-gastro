@@ -25,7 +25,7 @@ The root `.env` is ignored by Git. Commit `.env.example` only; it contains varia
 - The frontend calls API routes on the same Vercel domain. Leave `VITE_API_BASE_URL` unset.
 - `GEMINI_API_KEY` and `FATSECRET_CLIENT_SECRET` must remain server-side; never rename them to `VITE_*`.
 
-GitHub Pages publishes the built static frontend through `.github/workflows/deploy-pages.yml`; it cannot run the functions in `api/`. The Pages build points `VITE_API_BASE_URL` to `https://gastroguardai2.vercel.app`, which hosts the API. Keep `GEMINI_API_KEY` and FatSecret credentials configured in that Vercel project's server-side environment. The API allows cross-origin calls only from the published Pages origin by default. In the repository's **Settings → Pages**, set the build and deployment source to **GitHub Actions**.
+GitHub Pages publishes only the static frontend through `.github/workflows/deploy-pages.yml`; it cannot run the functions in `api/`. The workflow currently points `VITE_API_BASE_URL` to an external API deployment. Update that URL and the API's allowed origin if you deploy this repository elsewhere. Keep `GEMINI_API_KEY` and FatSecret credentials in the API host's server-side environment. In the repository's **Settings → Pages**, set the build and deployment source to **GitHub Actions**.
 
 Firebase web configuration and the Supabase anon key are client-side values, not server secrets. Protect their use with Firebase/Supabase security rules and provider-side restrictions. Never put a Supabase `service_role` key in a `VITE_*` variable.
 

@@ -1,4 +1,4 @@
-# Moodify Production Safe Package (Neon + Spreadsheet Hybrid)
+# Nusa Gastro Production Package (Neon + Spreadsheet Hybrid)
 
 ## 1) Arsitektur Aman
 
@@ -14,7 +14,7 @@ Isi di lokal `.env` dan Vercel:
 - `VITE_NEON_ENABLED`
 - `VITE_API_BASE_URL` (kosongkan jika pakai same-origin di Vercel)
 - `VITE_SHEETS_WEBHOOK_URL`
-- `VITE_SHEETS_SOURCE_LABEL` (opsional, default `moodify-web`)
+- `VITE_SHEETS_SOURCE_LABEL` (opsional, default `nusa-gastro-web`)
 
 ## 3) Proteksi API Neon
 

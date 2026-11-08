@@ -36,7 +36,7 @@ export default function GutDefender() {
   const restart = () => { setIndex(0); setAnswer(null); setScore(0); setFinished(false); };
 
   return <section className="gg-card gg-quiz-card gg-gut-defender">
-    <div className="gg-mini-head"><span className="gg-section-icon orange gg-quiz-feature-icon"><img src={publicAsset('gastroguard-assets/features/games-pasang-jawaban.png')} alt="" /></span><div><span className="gg-kicker">GUT DEFENDER · MISI SEHAT</span><h3>{finished ? 'Misi selesai!' : 'Uji insting sehatmu'}</h3></div><span className="gg-quiz-score"><Sparkles size={13}/>{score} poin</span></div>
+    <div className="gg-mini-head"><span className="gg-section-icon orange gg-quiz-feature-icon"><img src={publicAsset('nusa-gastro-assets/features/games-pasang-jawaban.png')} alt="" /></span><div><span className="gg-kicker">GUT DEFENDER · MISI SEHAT</span><h3>{finished ? 'Misi selesai!' : 'Uji insting sehatmu'}</h3></div><span className="gg-quiz-score"><Sparkles size={13}/>{score} poin</span></div>
     <div className="gg-quiz-progress"><span style={{ width: `${progress}%` }}/></div>
     {finished ? <div className="gg-quiz-finish"><b>{score}/{QUESTIONS.length} jawaban benar</b><p>{score === QUESTIONS.length ? 'Keren! Kamu siap menjaga perjalanan tetap sehat.' : 'Terus belajar—kebiasaan aman dapat membantu mencegah gangguan pencernaan.'}</p><button className="gg-next-quiz" onClick={restart}><RotateCcw size={15}/> Main lagi</button></div> : <>
       <div className="gg-quiz-meta"><span>Pertanyaan {index + 1} dari {QUESTIONS.length}</span><span>{answer === null ? 'Pilih jawabanmu' : answer === current.answer ? 'Tepat sekali!' : 'Yuk pelajari jawabannya'}</span></div>

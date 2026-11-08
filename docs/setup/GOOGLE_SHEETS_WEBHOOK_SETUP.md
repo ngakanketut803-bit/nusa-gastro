@@ -2,7 +2,7 @@
 
 ## 1) Buat Spreadsheet
 
-- Buat file baru: `Moodify Backup Log`.
+- Buat file baru: `Nusa Gastro Backup Log`.
 - Sheet name: `backup_log`.
 - Header:
   - `id`
@@ -57,7 +57,7 @@ function doPost(e) {
 Masukkan ke `.env` / Vercel:
 
 - `VITE_SHEETS_WEBHOOK_URL=<URL_DEPLOYMENT_APPS_SCRIPT>`
-- `VITE_SHEETS_SOURCE_LABEL=moodify-web`
+- `VITE_SHEETS_SOURCE_LABEL=nusa-gastro-web`
 
 ## 5) Verifikasi
 
