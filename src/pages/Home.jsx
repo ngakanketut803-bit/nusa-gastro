@@ -79,7 +79,7 @@ export default function Home() {
         <section className="gg-editorial-intro" aria-labelledby="intro-title">
           <span className="gg-kicker">BERANGKAT DENGAN LEBIH SIAP</span>
           <h2 id="intro-title">Informasi kesehatan yang membantu kamu tetap hadir di setiap perjalanan.</h2>
-          <p>Nusa Gastro AI menyatukan panduan keamanan pangan, kesehatan pencernaan, dan informasi perjalanan dalam satu tempat. Pilih alat yang kamu perlukan, lalu gunakan hasilnya sebagai bekal bertanya dan mengambil keputusan.</p>
+          <p>Nusa Gastro menyatukan panduan keamanan pangan, kesehatan pencernaan, dan informasi perjalanan dalam satu tempat. Pilih alat yang kamu perlukan, lalu gunakan hasilnya sebagai bekal bertanya dan mengambil keputusan.</p>
           <a href="#tools" className="gg-inline-link" onClick={(event) => { event.preventDefault(); goToSection('tools'); }}>Kenali alat Nusa Gastro <ArrowDownRight size={16}/></a>
         </section>
 
@@ -128,13 +128,13 @@ export default function Home() {
       </main>
 
       <footer className="gg-footer gg-site-footer">
-        <Link className="gg-brand" to="/home"><img className="gg-brand-mark gg-brand-logo" src={publicAsset('nusa-gastro-assets/logo.png')} alt=""/><span className="gg-brand-name"><b>Nusa Gastro <em>AI</em></b><small>Kesehatan perjalanan</small></span></Link>
+        <Link className="gg-brand" to="/home"><img className="gg-brand-mark gg-brand-logo" src={publicAsset('nusa-gastro-assets/logo.png')} alt=""/><span className="gg-brand-name"><b>Nusa Gastro</b><small>Kesehatan perjalanan</small></span></Link>
         <p>Informasi bersifat edukatif dan tidak menggantikan diagnosis atau perawatan tenaga kesehatan profesional.</p>
         <div className="gg-footer-links"><Link to="/predict">Nusa Predict</Link><Link to="/scan">Food Scan</Link><Link to="/gastrobot">Nusa Bot</Link><a href="tel:112"><Phone size={14}/> Darurat 112</a></div>
-        <span>© 2026 Nusa Gastro AI</span>
+        <span>© 2026 Nusa Gastro</span>
       </footer>
 
-      {welcomeOpen && <div className="gg-welcome-overlay" role="presentation"><section className="gg-welcome-modal" role="dialog" aria-modal="true" aria-labelledby="gg-welcome-title"><img src={publicAsset('nusa-gastro-assets/logo.png')} alt="Logo Nusa Gastro"/><span className="gg-kicker">TEMAN PERJALANAN</span><h2 id="gg-welcome-title">Selamat datang di Nusa Gastro AI</h2><p>Teman perjalanan untuk membantu menjaga kesehatan pencernaan, memilih makanan, dan menemukan edukasi yang relevan.</p><button onClick={() => { localStorage.setItem('gastroguard_welcome_seen', '1'); setWelcomeOpen(false); }}>Mulai jelajahi <ArrowUpRight size={16}/></button><small>Informasi di sini bersifat edukatif dan bukan pengganti saran tenaga kesehatan.</small></section></div>}
+      {welcomeOpen && <div className="gg-welcome-overlay" role="presentation"><section className="gg-welcome-modal" role="dialog" aria-modal="true" aria-labelledby="gg-welcome-title"><img src={publicAsset('nusa-gastro-assets/logo.png')} alt="Logo Nusa Gastro"/><span className="gg-kicker">TEMAN PERJALANAN</span><h2 id="gg-welcome-title">Selamat datang di Nusa Gastro</h2><p>Teman perjalanan untuk membantu menjaga kesehatan pencernaan, memilih makanan, dan menemukan edukasi yang relevan.</p><button onClick={() => { localStorage.setItem('gastroguard_welcome_seen', '1'); setWelcomeOpen(false); }}>Mulai jelajahi <ArrowUpRight size={16}/></button><small>Informasi di sini bersifat edukatif dan bukan pengganti saran tenaga kesehatan.</small></section></div>}
 
       {loginOpen && <div className="gg-login-overlay" role="presentation" onClick={(event) => { if (event.target === event.currentTarget) setLoginOpen(false); }}><form className="gg-login-card" onSubmit={handleLogin}><button type="button" className="gg-login-close" aria-label="Tutup" onClick={() => setLoginOpen(false)}><X size={17}/></button><img className="gg-brand-mark gg-brand-logo" src={publicAsset('nusa-gastro-assets/logo.png')} alt=""/><span className="gg-kicker">AKUN NUSA GASTRO</span><h2>Selamat datang, traveler</h2><p>Masuk menggunakan nama panggilan untuk menyimpan riwayat konseling pada perangkat ini.</p><label>Nama panggilan<input value={loginName} onChange={(event) => setLoginName(event.target.value)} placeholder="Nama kamu" autoComplete="nickname"/></label><label className="gg-privacy-check"><input type="checkbox" checked={privacyAccepted} onChange={(event) => setPrivacyAccepted(event.target.checked)}/>Saya memahami riwayat konseling disimpan secara lokal pada perangkat ini.</label>{loginError && <small className="gg-login-error" role="alert">{loginError}</small>}<button className="gg-login-submit" type="submit">Masuk / Buat profil</button></form></div>}
     </div>

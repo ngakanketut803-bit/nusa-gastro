@@ -19,9 +19,9 @@ export default function SiteHeader({ username, onLogin, onProfileToggle, profile
   return (
     <header className="gg-site-header">
       <div className="gg-site-header-inner">
-        <Link className="gg-brand" to="/home" onClick={closeMenu} aria-label="Nusa Gastro AI, beranda">
+        <Link className="gg-brand" to="/home" onClick={closeMenu} aria-label="Nusa Gastro, beranda">
           <img className="gg-brand-mark gg-brand-logo" src={publicAsset('nusa-gastro-assets/logo.png')} alt="" />
-          <span className="gg-brand-name"><b>Nusa Gastro <em>AI</em></b><small>Kesehatan perjalanan</small></span>
+          <span className="gg-brand-name"><b>Nusa Gastro</b><small>Kesehatan perjalanan</small></span>
         </Link>
 
         <nav className={`gg-site-links ${menuOpen ? 'is-open' : ''}`} aria-label="Navigasi utama">

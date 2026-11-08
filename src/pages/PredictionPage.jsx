@@ -361,7 +361,7 @@ export default function PredictionPage() {
     context.fill();
     context.fillStyle = '#0f766e';
     context.font = '700 24px Arial';
-    context.fillText('NUSA GASTRO AI · NUSA PREDICT', 96, 116);
+    context.fillText('NUSA GASTRO · NUSA PREDICT', 96, 116);
     context.fillStyle = '#163b3a';
     context.font = '700 42px Arial';
     context.fillText('Prediksi risiko cerna', 96, 178);
