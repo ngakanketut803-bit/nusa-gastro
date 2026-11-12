@@ -1,5 +1,6 @@
 const TOKEN_URL = 'https://oauth.fatsecret.com/connect/token';
 const API_BASE = 'https://platform.fatsecret.com/rest';
+const FATSECRET_REQUEST_TIMEOUT_MS = 6000;
 
 let cachedToken = null;
 let tokenExpiresAt = 0;
@@ -20,6 +21,30 @@ export const isFatSecretConfigured = () => {
 const hasLocalization = () => globalThis.process?.env?.FATSECRET_USE_LOCALIZATION === 'true';
 const apiScope = (extra = '') => ['basic', hasLocalization() ? 'localization' : '', extra].filter(Boolean).join(' ');
 
+const fetchJson = async (url, options) => {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), FATSECRET_REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    let data = {};
+    try {
+      data = await response.json();
+    } catch (error) {
+      if (controller.signal.aborted) throw error;
+    }
+    return { response, data };
+  } catch (error) {
+    if (controller.signal.aborted) {
+      const timeoutError = new Error(`FatSecret request timed out after ${FATSECRET_REQUEST_TIMEOUT_MS / 1000} seconds.`);
+      timeoutError.name = 'FatSecretTimeoutError';
+      throw timeoutError;
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
+};
+
 export const getAccessToken = async (scope = apiScope()) => {
   if (cachedToken && Date.now() < tokenExpiresAt - 60_000) {
     return cachedToken;
@@ -35,7 +60,7 @@ export const getAccessToken = async (scope = apiScope()) => {
     scope
   });
 
-  const response = await fetch(TOKEN_URL, {
+  const { response, data } = await fetchJson(TOKEN_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -44,7 +69,6 @@ export const getAccessToken = async (scope = apiScope()) => {
     body
   });
 
-  const data = await response.json();
   if (!response.ok || !data.access_token) {
     throw new Error(data.error_description || data.error || 'Gagal mendapatkan token FatSecret');
   }
@@ -61,7 +85,7 @@ const fatSecretFetch = async (path, { method = 'GET', body, scope } = {}) => {
     : `${API_BASE}${path}?format=json`;
   const isFormRequest = method !== 'GET';
 
-  const response = await fetch(url, {
+  const { response, data } = await fetchJson(url, {
     method,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -70,7 +94,9 @@ const fatSecretFetch = async (path, { method = 'GET', body, scope } = {}) => {
     body: body ? (isFormRequest ? new URLSearchParams(body) : JSON.stringify(body)) : undefined
   });
 
-  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data?.error?.message || `FatSecret request failed (HTTP ${response.status})`);
+  }
   if (data.error) {
     throw new Error(data.error.message || `FatSecret error ${data.error.code}`);
   }

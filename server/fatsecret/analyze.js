@@ -182,13 +182,11 @@ export default async function handler(req, res) {
     // FatSecret search by hint/name.
     if (hint && isFatSecretConfigured()) {
       try {
-        const results = await searchFoods(hint, { region: 'ID', language: 'id', maxResults: 5 });
-        for (const item of results) {
-          try {
-            const food = await getFoodById(item.food_id, { region: 'ID', language: 'id' });
-            const parsed = foodToNutritionResult(food);
-            if (parsed) return json(res, 200, { ok: true, result: parsed, source: 'fatsecret-search', query: hint });
-          } catch { /* coba hasil berikutnya */ }
+        const [item] = await searchFoods(hint, { region: 'ID', language: 'id', maxResults: 1 });
+        if (item) {
+          const food = await getFoodById(item.food_id, { region: 'ID', language: 'id' });
+          const parsed = foodToNutritionResult(food);
+          if (parsed) return json(res, 200, { ok: true, result: parsed, source: 'fatsecret-search', query: hint });
         }
       } catch (err) { console.warn('FatSecret search failed; using local fallback:', err.message); }
     }
