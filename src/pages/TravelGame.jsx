@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapPin, Compass, Trophy, ArrowLeft, RefreshCw, Plane, Backpack, Camera, Sun } from 'lucide-react';
+import { Compass, Trophy, ArrowLeft, RefreshCw, Plane, Backpack } from 'lucide-react';
 import './TravelGame.css';
 
 const BALI_DISTRICTS = [
@@ -62,7 +62,7 @@ const TravelGame = () => {
       osc.start();
       osc.stop(audioCtx.currentTime + 0.15);
     } catch (error) {
-      console.log("Audio play failed");
+      console.warn('Audio playback unavailable:', error);
     }
   };
 

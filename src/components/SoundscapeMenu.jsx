@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Music, Music2, CloudRain, TreePine, Waves, Flame, Play, Pause, Volume2, X } from 'lucide-react';
 import './SoundscapeMenu.css';
 

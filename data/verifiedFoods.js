@@ -4,34 +4,6 @@
  * Fokus: Makanan aman untuk perjalanan wisata anak.
  */
 
-const makeCatalogFood = ({ id, name, terms, category, emoji, calories, protein, fat, carbs, fiber, safetyTips, allergens }) => ({
-  id,
-  name,
-  searchTerms: terms,
-  category,
-  emoji,
-  calories,
-  protein,
-  fat,
-  carbs,
-  fiber,
-  safetyTips,
-  allergens,
-  nutritionList: [
-    { label: 'Kalori', value: `${calories} kkal`, desc: calories > 400 ? 'Tinggi' : calories > 200 ? 'Sedang' : 'Rendah' },
-    { label: 'Protein', value: `${protein} gram`, desc: protein > 15 ? 'Tinggi' : protein > 8 ? 'Sedang' : 'Rendah' },
-    { label: 'Lemak', value: `${fat} gram`, desc: fat > 15 ? 'Tinggi' : fat > 8 ? 'Sedang' : 'Rendah' },
-    { label: 'Karbohidrat', value: `${carbs} gram`, desc: carbs > 50 ? 'Tinggi' : carbs > 25 ? 'Sedang' : 'Rendah' },
-    { label: 'Serat', value: `${fiber} gram`, desc: fiber > 5 ? 'Tinggi' : fiber > 3 ? 'Sedang' : 'Rendah' }
-  ],
-  grade: (String(safetyTips).includes('Aman') || String(safetyTips).includes('Sangat Aman')) ? 'A' : 
-         String(safetyTips).includes('Hati-hati') ? 'B' : 'C',
-  gradeColor: (String(safetyTips).includes('Aman') || String(safetyTips).includes('Sangat Aman')) ? '#10b981' : 
-              String(safetyTips).includes('Hati-hati') ? '#eab308' : '#ef4444',
-  status: (String(safetyTips).includes('Aman') || String(safetyTips).includes('Sangat Aman')) ? 'Sangat Aman' : 
-          String(safetyTips).includes('Hati-hati') ? 'Perlu Hati-hati' : 'Berisiko'
-});
-
 const getServingRecommendation = (food) => {
   const name = String(food?.name || '').toLowerCase();
   const category = String(food?.category || '').toLowerCase();

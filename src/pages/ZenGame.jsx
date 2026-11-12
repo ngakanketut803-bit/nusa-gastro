@@ -16,7 +16,6 @@ const ZenGame = () => {
     const navigate = useNavigate();
     const canvasRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
-    const [progress, setProgress] = useState(0); // 0 to 100 wiped away
     const [completed, setCompleted] = useState(false);
     const [affirmation, setAffirmation] = useState('');
     
@@ -65,7 +64,6 @@ const ZenGame = () => {
         ctx.lineWidth = 100; // Large wiper
         ctx.globalCompositeOperation = 'destination-out'; // This makes drawing ERASE the canvas
 
-        setProgress(0);
         setCompleted(false);
     };
 
@@ -96,8 +94,8 @@ const ZenGame = () => {
             gain.connect(ctx.destination);
             osc.start();
             osc.stop(ctx.currentTime + 0.3);
-        } catch (e) {
-            console.log("Audio not allowed yet");
+        } catch (error) {
+            console.warn('Audio playback unavailable:', error);
         }
     };
 
@@ -160,8 +158,6 @@ const ZenGame = () => {
         }
         
         const percent = (cleared / sampleCount) * 100;
-        setProgress(percent);
-        
         // If 65% is cleared, reveal the whole thing smoothly
         if (percent > 65 && !completed) {
             completeGame();
@@ -190,7 +186,9 @@ const ZenGame = () => {
             gain.connect(ctx.destination);
             osc.start();
             osc.stop(ctx.currentTime + 2);
-        } catch(e) {}
+        } catch (error) {
+            console.warn('Audio playback unavailable:', error);
+        }
     };
 
     const resetGame = () => {
@@ -220,7 +218,7 @@ const ZenGame = () => {
             <div className="zen-reveal-scene">
                 <Leaf size={48} color="#0d9488" style={{ opacity: 0.2, marginBottom: '24px' }} />
                 <div className="zen-affirmation" style={{ opacity: completed ? 1 : 0, transform: completed ? 'translateY(0)' : 'translateY(20px)', transition: 'all 1.5s ease-in-out' }}>
-                    <h2>"{affirmation}"</h2>
+                    <h2>&quot;{affirmation}&quot;</h2>
                     {completed && (
                         <button className="btn-secondary" onClick={resetGame} style={{ marginTop: '24px', background: 'transparent', border: '2px solid #0d9488', color: '#0f766e' }}>
                             <RefreshCw size={18} /> Bersihkan Pikiran Lagi

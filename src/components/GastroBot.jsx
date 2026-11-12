@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { ArrowLeft, Maximize2, Minimize2, Send, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { chatCompletion } from '../lib/nutriApi';
@@ -88,3 +89,7 @@ export default function GastroBot({ standalone = false }) {
     {standalone && <div className="gg-standalone-note">Untuk keadaan darurat, hubungi <a href="tel:112">112</a> atau <a href="tel:119">119</a>.</div>}
   </div>;
 }
+
+GastroBot.propTypes = {
+  standalone: PropTypes.bool
+};

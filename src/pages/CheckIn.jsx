@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, CheckCircle2, AlertCircle, BookOpen, Calendar, HelpCircle, ClipboardCheck } from 'lucide-react';
+import { CheckCircle2, BookOpen, ClipboardCheck } from 'lucide-react';
 import { trackEvent } from '../lib/analytics';
-import ranstalLogo from '../assets/LOGO RANSTAL.webp';
 import './CheckIn.css';
 
 const PROGRAM_DAYS = [
@@ -59,7 +58,6 @@ const CheckIn = () => {
     const [eatFruit, setEatFruit] = useState(false);
     
     const [journalText, setJournalText] = useState('');
-    const [isSaved, setIsSaved] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [syncNotice, setSyncNotice] = useState('');
     const [hasCheckedInToday, setHasCheckedInToday] = useState(false);
@@ -170,8 +168,6 @@ const CheckIn = () => {
         localStorage.setItem(userKey, JSON.stringify(userData));
         setIsSaving(false);
         setHasCheckedInToday(true);
-        setIsSaved(true);
-        
         trackEvent('beverage_log_saved', {
             sugar: sugarIntake,
             water: waterIntake,

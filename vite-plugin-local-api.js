@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { Buffer } from 'node:buffer';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -55,7 +56,7 @@ const loadEnv = () => {
         if (eq === -1) continue;
         const key = trimmed.slice(0, eq).trim();
         const val = trimmed.slice(eq + 1).trim();
-        if (!process.env[key]) process.env[key] = val;
+        if (!globalThis.process.env[key]) globalThis.process.env[key] = val;
       }
     }
   } catch {

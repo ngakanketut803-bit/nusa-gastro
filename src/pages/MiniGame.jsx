@@ -53,7 +53,7 @@ const MiniGame = () => {
             osc.start();
             osc.stop(audioCtx.currentTime + 0.1);
         } catch (error) {
-            console.log("Audio play failed");
+            console.warn('Audio playback unavailable:', error);
         }
     };
 

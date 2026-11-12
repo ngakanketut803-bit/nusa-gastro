@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import {
   ArrowLeft,
   Compass,
-  LocateFixed,
   MapPinned,
   Navigation,
   PhoneCall,
@@ -133,7 +132,7 @@ const LocationTracker = () => {
     heading: null,
   });
   const [status, setStatus] = useState('Mengaktifkan GPS...');
-  const [error, setError] = useState('');
+  const [, setError] = useState('');
   const [shareMessage, setShareMessage] = useState('');
 
   const syncLocationToSupabase = useCallback(async (nextLocation) => {

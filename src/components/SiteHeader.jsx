@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { ArrowUpRight, Menu, Phone, X } from 'lucide-react';
 import { publicAsset } from '../lib/publicAsset';
@@ -47,3 +48,11 @@ export default function SiteHeader({ username, onLogin, onProfileToggle, profile
     </header>
   );
 }
+
+SiteHeader.propTypes = {
+  username: PropTypes.string,
+  onLogin: PropTypes.func,
+  onProfileToggle: PropTypes.func,
+  profileOpen: PropTypes.bool,
+  onLogout: PropTypes.func
+};

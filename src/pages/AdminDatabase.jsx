@@ -301,7 +301,6 @@ const AdminDatabase = () => {
             setSegmentTrendData(dayOrder.map((day) => segmentSeries[day] || { name: day, New: 0, Returning: 0 }));
             setRiskAlerts(riskAlertRows);
 
-            const now = new Date();
             const retained = { d1: 0, d7: 0, d30: 0 };
             loadedUsers.forEach((user) => {
                 if (!user.joinedAt || !user.lastActiveRaw) return;
@@ -879,7 +878,7 @@ const AdminDatabase = () => {
                                                 <span>Stres: {entry.sliders?.stress || 0}/10</span>
                                             </div>
                                             {entry.journalText && (
-                                                <div className="history-journal">"{entry.journalText}"</div>
+                                                <div className="history-journal">&quot;{entry.journalText}&quot;</div>
                                             )}
                                         </div>
                                     ))}

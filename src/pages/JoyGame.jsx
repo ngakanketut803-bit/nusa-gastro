@@ -73,7 +73,9 @@ const JoyGame = () => {
             gain.connect(ctx.destination);
             osc.start();
             osc.stop(ctx.currentTime + 0.2);
-        } catch(e) {}
+        } catch (error) {
+            console.warn('Audio playback unavailable:', error);
+        }
     }, []);
 
     // Handle Input for Basket
@@ -108,7 +110,6 @@ const JoyGame = () => {
             y: item.y + (FALL_SPEED * item.speedMultiplier)
         }));
 
-        let currentScore = score;
         let pGood = 0;
         let pBad = 0;
         const newPopups = [];
@@ -161,7 +162,7 @@ const JoyGame = () => {
         setItems(newItems);
 
         requestRef.current = requestAnimationFrame(updateGame);
-    }, [gameState, score, playSound]);
+    }, [gameState, playSound]);
 
     // Timer and Spawner Setup
     useEffect(() => {

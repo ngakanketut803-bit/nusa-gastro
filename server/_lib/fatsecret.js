@@ -5,8 +5,8 @@ let cachedToken = null;
 let tokenExpiresAt = 0;
 
 const getCredentials = () => {
-  const clientId = process.env.FATSECRET_CLIENT_ID || '';
-  const clientSecret = process.env.FATSECRET_CLIENT_SECRET || '';
+  const clientId = globalThis.process?.env?.FATSECRET_CLIENT_ID || '';
+  const clientSecret = globalThis.process?.env?.FATSECRET_CLIENT_SECRET || '';
   return { clientId, clientSecret };
 };
 
@@ -17,7 +17,7 @@ export const isFatSecretConfigured = () => {
 
 // Akun Basic hanya memiliki scope `basic`. Localization adalah fitur premium,
 // jadi hanya diminta jika variabel server berikut diaktifkan setelah disetujui FatSecret.
-const hasLocalization = () => process.env.FATSECRET_USE_LOCALIZATION === 'true';
+const hasLocalization = () => globalThis.process?.env?.FATSECRET_USE_LOCALIZATION === 'true';
 const apiScope = (extra = '') => ['basic', hasLocalization() ? 'localization' : '', extra].filter(Boolean).join(' ');
 
 export const getAccessToken = async (scope = apiScope()) => {
@@ -39,7 +39,7 @@ export const getAccessToken = async (scope = apiScope()) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`
+      Authorization: `Basic ${globalThis.Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`
     },
     body
   });
@@ -211,7 +211,7 @@ export const recognizedFoodToResult = (item) => {
   return foodToNutritionResult(food, 'fatsecret-image');
 };
 
-const computeNutriGrade = ({ sugar, calories, fat }) => {
+const computeNutriGrade = ({ sugar, calories }) => {
   if (sugar <= 5 && calories <= 80) {
     return { letter: 'A', color: '#10b981', status: 'Sangat Sehat' };
   }

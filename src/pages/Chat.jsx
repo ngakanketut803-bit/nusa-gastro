@@ -128,12 +128,10 @@ const Chat = () => {
                 max_tokens: 800,
                 temperature: 0.7
             });
-            return data.content?.trim() || getLocalResponseFallback(userText);
-                return withReferences(data.content?.trim() || getLocalResponseFallback(userText));
+            return withReferences(data.content?.trim() || getLocalResponseFallback(userText));
         } catch (error) {
             console.warn('AI chat unavailable; using local nutrition guidance.', error);
-            return getLocalResponseFallback(userText);
-                return withReferences(getLocalResponseFallback(userText));
+            return withReferences(getLocalResponseFallback(userText));
         }
     };
 
