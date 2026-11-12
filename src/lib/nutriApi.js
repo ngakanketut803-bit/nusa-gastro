@@ -38,7 +38,8 @@ export const chatCompletion = async ({ messages, max_tokens = 600, temperature =
 export const analyzeFoodOrDrinkImage = async ({ imageB64, searchHint, catalogKey }) => {
   return request('/api/fatsecret/analyze', {
     method: 'POST',
-    body: { image_b64: imageB64, search_hint: searchHint, catalog_key: catalogKey }
+    body: { image_b64: imageB64, search_hint: searchHint, catalog_key: catalogKey },
+    timeoutMs: 55000
   });
 };
 
