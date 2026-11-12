@@ -197,6 +197,19 @@ html[data-theme='night'] .gg-herb-details .gg-herb-help span {
   color: var(--gg-copy);
 }
 
+html[data-theme='night'] .gg-herb-image {
+  background: #25372e;
+  color: var(--gg-forest);
+}
+
+html[data-theme='night'] .gg-herb-top small {
+  padding: 4px 8px;
+  border: 1px solid var(--gg-line);
+  border-radius: 999px;
+  background: #25372e;
+  color: var(--gg-copy);
+}
+
 html[data-theme='night'] .gg-forecast-visual {
   border-color: var(--gg-line);
   background: linear-gradient(145deg, #1d2823, #151e1a 76%);
@@ -274,6 +287,53 @@ html[data-theme='night'] .gg-forecast-table .negative {
 
 html[data-theme='night'] .gg-forecast-table-wrap > p {
   color: #b1beb6;
+}
+
+html[data-theme='night'] .gg-monthly-x-wrap {
+  border-color: var(--gg-line);
+  background: #1d2823;
+}
+
+html[data-theme='night'] .gg-monthly-x-table caption {
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-monthly-x-table th {
+  color: var(--gg-muted);
+}
+
+html[data-theme='night'] .gg-data-quality span {
+  border-color: var(--gg-line);
+  background: #25372e;
+}
+
+html[data-theme='night'] .gg-data-quality small {
+  color: var(--gg-muted);
+}
+
+html[data-theme='night'] .gg-data-quality b {
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-data-warnings {
+  border-color: #674d2c;
+  background: #352a1b;
+  color: #f1c47b;
+}
+
+html[data-theme='night'] .gg-export-actions {
+  border-top-color: var(--gg-line);
+}
+
+html[data-theme='night'] .gg-export-actions button {
+  border-color: #43594d;
+  background: #25372e;
+  color: #a4d8c6;
+}
+
+html[data-theme='night'] .gg-export-actions button:hover:not(:disabled) {
+  border-color: #527262;
+  background: #2d4438;
 }
 
 html[data-theme='night'] .gg-validation-metrics span {
