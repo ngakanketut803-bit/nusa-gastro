@@ -176,6 +176,118 @@ html[data-theme='night'] .gg-prediction-caution {
   color: #f1c47b;
 }
 
+html[data-theme='night'] .gg-herb-details b {
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-herb-details span {
+  color: var(--gg-copy);
+}
+
+html[data-theme='night'] .gg-herb-details .gg-herb-caution span {
+  color: #f1c47b;
+}
+
+html[data-theme='night'] .gg-herb-details .gg-herb-help {
+  background: #25372e;
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-herb-details .gg-herb-help span {
+  color: var(--gg-copy);
+}
+
+html[data-theme='night'] .gg-forecast-visual {
+  border-color: var(--gg-line);
+  background: linear-gradient(145deg, #1d2823, #151e1a 76%);
+}
+
+html[data-theme='night'] .gg-chart-legend {
+  color: var(--gg-copy);
+}
+
+html[data-theme='night'] .gg-chart-legend .range {
+  border-color: #89633d;
+  background: #493521;
+}
+
+html[data-theme='night'] .gg-chart-axis-label {
+  fill: #b1beb6;
+}
+
+html[data-theme='night'] .gg-chart-axis-label.future {
+  fill: #f1b878;
+}
+
+html[data-theme='night'] .gg-chart-note,
+html[data-theme='night'] .gg-validation-note {
+  color: #b1beb6;
+}
+
+html[data-theme='night'] .gg-forecast-svg line {
+  stroke: #405148;
+}
+
+html[data-theme='night'] .gg-forecast-svg circle {
+  fill: #1d2823;
+}
+
+html[data-theme='night'] .gg-residual-chart > line:first-child {
+  stroke: #899a90;
+}
+
+html[data-theme='night'] .gg-forecast-table-wrap {
+  border-color: var(--gg-line);
+  background: #1d2823;
+}
+
+html[data-theme='night'] .gg-forecast-table caption {
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-forecast-table th,
+html[data-theme='night'] .gg-forecast-table td {
+  border-color: var(--gg-line);
+  color: var(--gg-copy);
+}
+
+html[data-theme='night'] .gg-forecast-table thead th {
+  background: #25372e;
+  color: #c4cec8;
+}
+
+html[data-theme='night'] .gg-forecast-table tbody th {
+  color: #e7eee9;
+}
+
+html[data-theme='night'] .gg-forecast-table tbody tr:nth-child(even) {
+  background: #202c26;
+}
+
+html[data-theme='night'] .gg-forecast-table .positive {
+  color: #f1b878;
+}
+
+html[data-theme='night'] .gg-forecast-table .negative {
+  color: #87d2bd;
+}
+
+html[data-theme='night'] .gg-forecast-table-wrap > p {
+  color: #b1beb6;
+}
+
+html[data-theme='night'] .gg-validation-metrics span {
+  background: #25372e;
+}
+
+html[data-theme='night'] .gg-validation-metrics small {
+  color: var(--gg-muted);
+}
+
+html[data-theme='night'] .gg-validation-metrics b {
+  color: var(--gg-ink);
+}
+
 html[data-theme='night'] .gg-model-notice,
 html[data-theme='night'] .gg-prediction-number,
 html[data-theme='night'] .gg-forecast-summary,
