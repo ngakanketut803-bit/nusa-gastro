@@ -1,0 +1,266 @@
+html[data-theme='night'] {
+  color-scheme: dark;
+  --gg-teal: #0f766e;
+  --gg-teal-dark: #158477;
+  --gg-forest: #a4cdb0;
+  --gg-ivory: #111815;
+  --gg-white: #1d2823;
+  --gg-orange: #f4bb58;
+  --gg-ink: #e7eee9;
+  --gg-copy: #c4cec8;
+  --gg-muted: #99a69f;
+  --gg-line: #34443b;
+  --gg-soft-green: #25372e;
+}
+
+html[data-theme='night'],
+html[data-theme='night'] body,
+html[data-theme='night'] #root,
+html[data-theme='night'] .app-container,
+html[data-theme='night'] .content-area,
+html[data-theme='night'] .gg-app,
+html[data-theme='night'] .gg-prediction-page,
+html[data-theme='night'] .gg-gastrobot-page {
+  background-color: var(--gg-ivory);
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-site-header {
+  border-bottom-color: var(--gg-line);
+  background: rgba(17, 24, 21, .97);
+}
+
+html[data-theme='night'] .gg-site-links a,
+html[data-theme='night'] .gg-site-links button,
+html[data-theme='night'] .gg-footer-links a,
+html[data-theme='night'] .gg-tool-index {
+  color: var(--gg-copy);
+}
+
+html[data-theme='night'] .gg-site-links a:hover,
+html[data-theme='night'] .gg-site-links a.active,
+html[data-theme='night'] .gg-site-links button:hover,
+html[data-theme='night'] .gg-footer-links a:hover {
+  color: #78cdbb;
+}
+
+html[data-theme='night'] .gg-theme-toggle,
+html[data-theme='night'] .gg-menu-toggle,
+html[data-theme='night'] .gg-account-button,
+html[data-theme='night'] .gg-profile-menu,
+html[data-theme='night'] .gg-site-footer,
+html[data-theme='night'] .gg-card,
+html[data-theme='night'] .gg-scan-launch,
+html[data-theme='night'] .gg-section-image,
+html[data-theme='night'] .gg-chat-card,
+html[data-theme='night'] .gg-clinic-card,
+html[data-theme='night'] .gg-chat-head,
+html[data-theme='night'] .gg-messages,
+html[data-theme='night'] .gg-message.bot,
+html[data-theme='night'] .gg-quick-prompts button,
+html[data-theme='night'] .gg-chat-form,
+html[data-theme='night'] .gg-check-card,
+html[data-theme='night'] .gg-quiz-card,
+html[data-theme='night'] .gg-config-card,
+html[data-theme='night'] .gg-data-card,
+html[data-theme='night'] .gg-result-card,
+html[data-theme='night'] .gg-prediction-fields select,
+html[data-theme='night'] .gg-prediction-fields input,
+html[data-theme='night'] .gg-future-inputs input,
+html[data-theme='night'] .gg-data-card textarea,
+html[data-theme='night'] .gg-x-options label,
+html[data-theme='night'] .gg-forecast-summary,
+html[data-theme='night'] .gg-game-card,
+html[data-theme='night'] .gg-game-art,
+html[data-theme='night'] .gg-legacy-game-link,
+html[data-theme='night'] .gemini-key-card,
+html[data-theme='night'] .drink-selector-wrapper,
+html[data-theme='night'] .scan-result-card,
+html[data-theme='night'] .camera-viewport-card,
+html[data-theme='night'] .select-chip:not(.active),
+html[data-theme='night'] .toggle-drinks-btn,
+html[data-theme='night'] .upload-file-btn,
+html[data-theme='night'] .btn-secondary,
+html[data-theme='night'] .gg-login-card,
+html[data-theme='night'] .gg-welcome-modal {
+  border-color: var(--gg-line);
+  background-color: var(--gg-white);
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-theme-toggle:hover,
+html[data-theme='night'] .gg-menu-toggle:hover,
+html[data-theme='night'] .gg-account-button:hover {
+  border-color: #527262;
+  background-color: #26372e;
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-site-links {
+  border-bottom-color: var(--gg-line);
+  background: var(--gg-ivory);
+}
+
+html[data-theme='night'] .gg-emergency,
+html[data-theme='night'] .gg-locator-emergency a {
+  border-color: #674d2c;
+  background: #352a1b;
+  color: #f1c47b;
+}
+
+html[data-theme='night'] .gg-site-links .gg-mobile-emergency {
+  color: #f1c47b;
+}
+
+html[data-theme='night'] .gg-closing-cta {
+  background: #173e35;
+}
+
+html[data-theme='night'] .gg-closing-cta .gg-button-light {
+  color: #173e35 !important;
+}
+
+html[data-theme='night'] .gg-quiz-score {
+  border-color: #674d2c;
+  background: #352a1b;
+  color: #f1c47b;
+}
+
+html[data-theme='night'] .gg-toolkit {
+  background: #18221d;
+}
+
+html[data-theme='night'] .gg-tool-list,
+html[data-theme='night'] .gg-tool-row,
+html[data-theme='night'] .gg-herb-grid,
+html[data-theme='night'] .gg-home-main > .gg-assistance-section,
+html[data-theme='night'] .gg-herb-details {
+  border-color: var(--gg-line);
+}
+
+html[data-theme='night'] .gg-tool-row:hover {
+  background: rgba(255, 255, 255, .05);
+}
+
+html[data-theme='night'] .gg-hero-visual figcaption {
+  border-color: var(--gg-line);
+  background: rgba(29, 40, 35, .97);
+  color: var(--gg-forest);
+}
+
+html[data-theme='night'] .gg-messages {
+  background: #151e1a;
+}
+
+html[data-theme='night'] .gg-quick-prompts button,
+html[data-theme='night'] .gg-chat-form,
+html[data-theme='night'] .gg-gut-defender .gg-quiz-options button,
+html[data-theme='night'] .gg-prediction-fields select,
+html[data-theme='night'] .gg-prediction-fields input,
+html[data-theme='night'] .gg-future-inputs input,
+html[data-theme='night'] .gg-data-card textarea,
+html[data-theme='night'] .food-search-input {
+  border-color: var(--gg-line);
+  background: #1d2823;
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .gg-quick-prompts button,
+html[data-theme='night'] .gg-gut-defender .gg-quiz-options button {
+  color: var(--gg-copy);
+}
+
+html[data-theme='night'] .gg-herb-details .gg-herb-caution,
+html[data-theme='night'] .gg-prediction-caution {
+  background: #352a1b;
+  color: #f1c47b;
+}
+
+html[data-theme='night'] .gg-model-notice,
+html[data-theme='night'] .gg-prediction-number,
+html[data-theme='night'] .gg-forecast-summary,
+html[data-theme='night'] .gg-method-card,
+html[data-theme='night'] .gg-quiz-progress {
+  border-color: var(--gg-line);
+  background-color: #25372e;
+  color: var(--gg-copy);
+}
+
+html[data-theme='night'] .gg-method-card {
+  background: linear-gradient(155deg, #173e35, #1b5148);
+}
+
+html[data-theme='night'] .gg-x-options label.active {
+  border-color: #527262;
+  background: #25372e;
+}
+
+html[data-theme='night'] .gg-prediction-number.coral {
+  background: #3a2a22;
+  color: #efb28e;
+}
+
+html[data-theme='night'] .gg-game-card.match {
+  background: linear-gradient(135deg, #1d2936, #1d2823 62%);
+}
+
+html[data-theme='night'] .gg-game-card.puzzle {
+  background: linear-gradient(135deg, #35232c, #1d2823 62%);
+}
+
+html[data-theme='night'] .gg-legacy-game-icon,
+html[data-theme='night'] .gg-weather-icon,
+html[data-theme='night'] .gg-scan-launch-icon {
+  background-color: #25372e;
+  color: var(--gg-forest);
+}
+
+html[data-theme='night'] input:not([type='checkbox']):not([type='radio']),
+html[data-theme='night'] textarea,
+html[data-theme='night'] select {
+  border-color: var(--gg-line);
+  background-color: var(--gg-white);
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] input::placeholder,
+html[data-theme='night'] textarea::placeholder {
+  color: var(--gg-muted);
+}
+
+html[data-theme='night'] .bottom-nav {
+  border-color: var(--gg-line);
+  background: rgba(25, 36, 31, .97);
+}
+
+html[data-theme='night'] .nav-item {
+  color: var(--gg-muted);
+}
+
+html[data-theme='night'] .nav-item:hover,
+html[data-theme='night'] .nav-item.active {
+  background: #25372e;
+  color: #a4d8c6;
+}
+
+html[data-theme='night'] .joygame-container {
+  background: linear-gradient(180deg, #241b22 0%, #211b29 100%);
+}
+
+html[data-theme='night'] .joygame-back-button,
+html[data-theme='night'] .joygame-theme-toggle,
+html[data-theme='night'] .joygame-stats,
+html[data-theme='night'] .joy-overlay {
+  border-color: var(--gg-line);
+  background: rgba(29, 40, 35, .94);
+  color: var(--gg-ink);
+}
+
+html[data-theme='night'] .joygame-back-button:hover,
+html[data-theme='night'] .joygame-theme-toggle:hover {
+  background: #2a3a32;
+}
+
+html[data-theme='night'] .joy-overlay p {
+  color: var(--gg-copy);
+}

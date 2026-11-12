@@ -45,6 +45,8 @@ img { max-width: 100%; }
 .gg-site-links a, .gg-site-links button { padding: 8px 0; border: 0; background: transparent; color: #48544f; font-size: 12px; font-weight: 600; white-space: nowrap; }
 .gg-site-links a:hover, .gg-site-links a.active, .gg-site-links button:hover { color: var(--gg-teal); }
 .gg-site-actions { position: relative; display: flex; flex: 0 0 auto; align-items: center; gap: 9px; }
+.gg-theme-toggle { display: inline-grid; place-items: center; width: 40px; height: 40px; flex: none; padding: 0; border: 1px solid var(--gg-line); border-radius: var(--gg-radius-sm); background: white; color: var(--gg-forest); transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
+.gg-theme-toggle:hover { border-color: var(--gg-teal); background: var(--gg-soft-green); }
 .gg-emergency { display: inline-flex; align-items: center; gap: 7px; padding: 9px 11px; border: 1px solid #ead9c5; border-radius: var(--gg-radius-sm); background: #fff8ed; color: #8b4e23; font-size: 11px; font-weight: 700; white-space: nowrap; }
 .gg-header-cta, .gg-account-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 0 14px; border: 1px solid var(--gg-teal); border-radius: var(--gg-radius-sm); background: var(--gg-teal); color: white; font-size: 11px; font-weight: 700; transition: background-color .18s ease, border-color .18s ease; }
 .gg-header-cta:hover, .gg-account-button:hover { border-color: var(--gg-teal-dark); background: var(--gg-teal-dark); }
@@ -307,6 +309,7 @@ img { max-width: 100%; }
   .gg-header-cta { display: none; }
   .gg-account-button { width: 36px; min-width: 36px; min-height: 36px; }
   .gg-menu-toggle { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--gg-line); border-radius: 8px; background: white; color: var(--gg-ink); }
+  .gg-theme-toggle { width: 38px; height: 38px; }
   .gg-home-main { width: calc(100% - 30px); padding: 19px 0 48px !important; }
   .gg-hero-editorial { grid-template-columns: minmax(0, 1fr); gap: 22px; min-height: 0; margin-bottom: 0; }
   .gg-hero-editorial .gg-hero-copy { padding: 14px 0 0; }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Sparkles, Trophy, RefreshCw } from 'lucide-react';
+import { ArrowLeft, Moon, RefreshCw, Sparkles, Sun, Trophy } from 'lucide-react';
+import { useTheme } from '../context/theme';
 import './JoyGame.css';
 
 const POSITIVE_ITEMS = ['⭐', '💖', '🎁', '🌻', '🎈'];
@@ -13,6 +14,7 @@ const FALL_SPEED = 5; // pixels per frame roughly
 
 const JoyGame = () => {
     const navigate = useNavigate();
+    const { theme, toggleTheme } = useTheme();
     
     // Game States
     const [gameState, setGameState] = useState('start'); // start, playing, end
@@ -236,11 +238,12 @@ const JoyGame = () => {
         >
             {/* Nav Back Header */}
             <div className="joygame-header">
-                <button 
+                <button
+                    className="joygame-back-button"
                     onClick={() => navigate('/home')}
-                    style={{ background: 'white', border: 'none', padding: '12px', borderRadius: '50%', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', cursor: 'pointer' }}
+                    aria-label="Kembali ke beranda"
                 >
-                    <ArrowLeft size={24} color="#0f172a" />
+                    <ArrowLeft size={24} aria-hidden="true" />
                 </button>
                 
                 <div className="joygame-stats">
@@ -249,6 +252,15 @@ const JoyGame = () => {
                         {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
                     </div>
                 </div>
+                <button
+                    className="joygame-theme-toggle"
+                    type="button"
+                    aria-label={theme === 'night' ? 'Aktifkan mode terang' : 'Aktifkan mode malam'}
+                    aria-pressed={theme === 'night'}
+                    onClick={toggleTheme}
+                >
+                    {theme === 'night' ? <Sun size={19} aria-hidden="true"/> : <Moon size={19} aria-hidden="true"/>}
+                </button>
             </div>
 
             <div className="joy-play-area" ref={containerRef}>

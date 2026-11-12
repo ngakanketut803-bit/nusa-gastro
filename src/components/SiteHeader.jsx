@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowUpRight, Menu, Phone, X } from 'lucide-react';
+import { ArrowUpRight, Menu, Moon, Phone, Sun, X } from 'lucide-react';
 import { publicAsset } from '../lib/publicAsset';
+import { useTheme } from '../context/theme';
 
 export default function SiteHeader({ username, onLogin, onProfileToggle, profileOpen, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,6 +43,16 @@ export default function SiteHeader({ username, onLogin, onProfileToggle, profile
           <button className="gg-header-cta" type="button" onClick={() => navigate('/predict')}>Mulai jelajah <ArrowUpRight size={15}/></button>
           <button className="gg-menu-toggle" type="button" aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
             {menuOpen ? <X size={21}/> : <Menu size={21}/>}
+          </button>
+          <button
+            className="gg-theme-toggle"
+            type="button"
+            aria-label={theme === 'night' ? 'Aktifkan mode terang' : 'Aktifkan mode malam'}
+            aria-pressed={theme === 'night'}
+            title={theme === 'night' ? 'Aktifkan mode terang' : 'Aktifkan mode malam'}
+            onClick={toggleTheme}
+          >
+            {theme === 'night' ? <Sun size={18} aria-hidden="true"/> : <Moon size={18} aria-hidden="true"/>}
           </button>
           {profileOpen && <div className="gg-profile-menu"><b>{username}</b><small>Akun ini menyimpan riwayat konseling di perangkat.</small><button className="gg-logout" onClick={onLogout}>Keluar akun</button></div>}
         </div>

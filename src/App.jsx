@@ -5,9 +5,11 @@ import GastroBotPage from './pages/GastroBotPage';
 import Scan from './pages/Scan';
 import JoyGame from './pages/JoyGame';
 import GamesMenu from './pages/GamesMenu';
+import { ThemeProvider } from './context/ThemeContext';
 import BottomNav from './components/BottomNav';
 import './index.css';
 import './styles/redesign.css';
+import './styles/night-mode.css';
 
 function AppLayout() {
   const location = useLocation();
@@ -31,7 +33,7 @@ function AppLayout() {
 }
 
 function App() {
-  return <Router><AppLayout/></Router>;
+  return <ThemeProvider><Router><AppLayout/></Router></ThemeProvider>;
 }
 
 export default App;

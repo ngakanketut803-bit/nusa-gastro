@@ -27,6 +27,26 @@
     z-index: 2;
 }
 
+.joygame-back-button,
+.joygame-theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: white;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.joygame-theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .joygame-stats {
     position: absolute;
     left: 50%;
